@@ -2,13 +2,14 @@ import "./App.css";
 import { useState } from "react";
 import CommentEditor from "./components/comment-editor/CommentEditor";
 import Comment from "./components/comment/Comment";
+import Header from "./components/header/Header";
 
 function App() {
   const [comments, setComment] = useState({ data: [], i: 0 });
 
   return (
     <div className="App">
-      <p>Comment Widget</p>
+      <Header />
       <CommentEditor comments={comments} />
       <Comment comments={comments} />
     </div>
