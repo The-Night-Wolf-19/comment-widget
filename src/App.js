@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import CommentEditor from "./components/comment-editor/CommentEditor";
+import Comment from "./components/comment/Comment";
 
 function App() {
+  const [comments, setComment] = useState({ data: [], i: 0 });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>Comment Widget</p>
+      <CommentEditor comments={comments} />
+      <Comment comments={comments} />
     </div>
   );
 }
 
 export default App;
+
+/*
+  comments={
+    data:[
+      {
+        username: "Shubham",
+        date: "19 November 2022",
+        text: "1st Level comment",
+        id:0,
+        comments: [
+          {
+            username: "Shubham",
+            date: "19 November 2022",
+            text: "2nd Level Comment",
+            id:1,
+            comments: []
+            }
+          ]
+      },
+      {
+
+      },
+    ],
+    i:2,
+  }
+
+*/
