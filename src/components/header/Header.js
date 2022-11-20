@@ -5,7 +5,6 @@ const Header = () => {
   return (
     <div className="Header">
       <span className="HeaderTitle">Comment Widget</span>
-      <hr />
     </div>
   );
 };

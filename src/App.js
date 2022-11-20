@@ -11,7 +11,9 @@ function App() {
     <div className="App">
       <Header />
       <CommentEditor comments={comments} />
-      <Comment comments={comments} />
+      <div className="CommentsDiv">
+        <Comment comments={comments} />
+      </div>
     </div>
   );
 }

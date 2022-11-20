@@ -1,0 +1,13 @@
+.CommentEditorDiv {
+  border-radius: 1rem;
+  border: 1px solid rgba(49, 59, 68, 0.6);
+  background-color: #eee;
+  /* color: #13181d; */
+  padding: 1rem;
+}
+
+.InputCommentDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
