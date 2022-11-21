@@ -1,28 +1,39 @@
 import "./App.css";
 import { useState } from "react";
 import CommentEditor from "./components/comment-editor/CommentEditor";
-import Comment from "./components/comment/Comment";
 import Header from "./components/header/Header";
+import Comments from "./components/comments/Comments";
 
-function App() {
-  const [comments, setComment] = useState({ data: [], i: 0 });
+export function App() {
+  const [comments, setComments] = useState({ comments: [], i: 0 });
 
+  const addComment = (val) => {
+    let temp = { ...val, i: comments.i + 1 };
+    setComments(temp);
+  };
+  const deleteComment = (val) => {
+    setComments(val);
+  };
   return (
     <div className="App">
       <Header />
-      <CommentEditor comments={comments} />
-      <div className="CommentsDiv">
-        <Comment comments={comments} />
-      </div>
+      <CommentEditor
+        comment={comments}
+        addComment={(val) => addComment(val)}
+        latest={comments.i}
+      />
+      <Comments
+        comments={comments}
+        addComment={(val) => addComment(val)}
+        deleteComment={(val) => deleteComment(val)}
+      />
     </div>
   );
 }
 
-export default App;
-
 /*
   comments={
-    data:[
+    comments:[
       {
         username: "Shubham",
         date: "19 November 2022",

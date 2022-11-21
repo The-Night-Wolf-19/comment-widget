@@ -6,14 +6,6 @@
   padding: 2rem;
   color: #f6f2f2;
 }
-.CommentsDiv {
-  margin-top: 1.5rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(49, 59, 68, 1);
-  padding: 1rem;
-  min-height: 60vh;
-  background-color: #13181d;
-}
 
 /* .App-logo {
   height: 40vmin;

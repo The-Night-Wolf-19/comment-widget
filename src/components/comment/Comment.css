@@ -1,6 +1,6 @@
 .CommentDiv {
   margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 .ParentComment {
   display: flex;
@@ -17,7 +17,6 @@
 }
 .ChildComments {
   border-left: 1px solid #38434d;
-  /* border-radius: 1rem; */
   padding-left: 1rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
