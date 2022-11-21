@@ -4,12 +4,20 @@
 }
 .ParentComment {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin-bottom: 0.5rem;
 }
 .CommentText {
+  max-width: inherit;
   margin-right: 1rem;
   font-size: large;
+  margin-bottom: 0.25rem;
+}
+.CommentTimestamp {
+  color: #3f5462;
+  margin-right: 1rem;
+  font-size: small;
 }
 .CommentButton {
   display: flex;

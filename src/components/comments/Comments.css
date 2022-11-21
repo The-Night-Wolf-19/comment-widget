@@ -4,5 +4,7 @@
   border: 1px solid rgba(49, 59, 68, 1);
   padding: 1rem;
   min-height: 60vh;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   background-color: #13181d;
 }

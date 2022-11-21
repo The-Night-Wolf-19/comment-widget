@@ -1,4 +1,4 @@
-//Component for adding comment
+//Component for editing comments
 
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
@@ -6,26 +6,19 @@ import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import "./CommentEditor.css";
 
-const CommentEditor = ({ comment, addComment, latest }) => {
-  const [input, setInput] = useState("");
+const EditComment = ({ comment, value, editComment, latest }) => {
+  const [input, setInput] = useState(value);
   const handleChange = (val) => {
     setInput(val);
   };
-  const handleAdd = () => {
+  const handleEdit = () => {
     if (input === "") return;
-    let temp = { ...comment };
     let date = new Date();
     date = date.toString();
-    let add = {
-      username: "Shubham",
-      date: date,
-      text: input,
-      id: latest,
-      comments: [],
-    };
-    temp.comments.push(add);
+    let temp = { ...comment, text: input, date: date };
+
     setInput("");
-    addComment(temp);
+    editComment(temp);
   };
   return (
     <div className="CommentEditorDiv">
@@ -46,8 +39,8 @@ const CommentEditor = ({ comment, addComment, latest }) => {
             value={input}
             onChange={(e) => handleChange(e.target.value)}
           />
-          <Button variant="contained" onClick={handleAdd}>
-            Add Comment
+          <Button variant="contained" onClick={handleEdit}>
+            Edit Comment
           </Button>
         </div>
       </Box>
@@ -55,4 +48,4 @@ const CommentEditor = ({ comment, addComment, latest }) => {
   );
 };
 
-export default CommentEditor;
+export default EditComment;

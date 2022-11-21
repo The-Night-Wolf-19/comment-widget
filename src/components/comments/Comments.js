@@ -1,7 +1,8 @@
 import React from "react";
 import Comment from "../comment/Comment";
 import "./Comments.css";
-const Comments = ({ comments, addComment, deleteComment }) => {
+const Comments = ({ comments, addComment, deleteComment, changeComment }) => {
+  //Methods to handle add, delete and edit at the top level
   const handleAdd = (val, id) => {
     let temp = [...comments.comments];
     for (let i = 0; i < temp.length; i++) {
@@ -12,6 +13,7 @@ const Comments = ({ comments, addComment, deleteComment }) => {
     }
     addComment({ ...comments, comments: temp });
   };
+
   const handleDelete = (val, id) => {
     let temp = [...comments.comments];
     let idx = -1;
@@ -25,6 +27,19 @@ const Comments = ({ comments, addComment, deleteComment }) => {
     if (idx !== -1) temp.splice(idx, 1);
     deleteComment({ ...comments, comments: temp });
   };
+
+  const handleChange = (val, id) => {
+    let temp = [...comments.comments];
+    for (let i = 0; i < temp.length; i++) {
+      if (temp[i].id === id) {
+        temp[i] = val;
+        i = temp.length;
+      }
+    }
+    changeComment({ ...comments, comments: temp });
+  };
+
+  //For rendering all the comments
   let components = [];
   components = comments.comments.map((ele) => (
     <Comment
@@ -32,6 +47,7 @@ const Comments = ({ comments, addComment, deleteComment }) => {
       id={ele.id}
       addComment={(val, id) => handleAdd(val, id)}
       deleteComment={(val, id) => handleDelete(val, id)}
+      changeComment={(val, id) => handleChange(val, id)}
       latest={comments.i}
       key={ele.id}
     />
