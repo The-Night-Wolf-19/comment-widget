@@ -20,6 +20,12 @@ const EditComment = ({ comment, value, editComment, latest }) => {
     setInput("");
     editComment(temp);
   };
+  const handleKey = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleEdit();
+    }
+  };
   return (
     <div className="CommentEditorDiv">
       <Box
@@ -30,7 +36,7 @@ const EditComment = ({ comment, value, editComment, latest }) => {
         noValidate
         autoComplete="off"
       >
-        <div className="InputCommentDiv">
+        <div className="InputCommentDiv" onKeyPress={(e) => handleKey(e)}>
           <TextField
             required
             id="outlined-required"
